@@ -2,51 +2,53 @@ import React, { useState } from "react";
 import { navItems } from "../constants";
 import logo from "../assets/logo.png";
 import { Menu, X } from "lucide-react";
-
+//mobileOpen track whether the mobile menu drawer is open , it is first set to false
 function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <>
-      {/* NavBar */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex items-center">
+      {/* NavBar: Fixed at top with backdrop blur */}
+      <nav className="fixed top-0 left-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 text-white flex justify-center">
+        {/* Container: set to 85% width */}
+        <div className="max-w-[1100px] w-[85%] py-3 flex items-center justify-between">
           
-          {/* Logo*/}
-          <div className="flex items-center">
-            <img className="h-10 w-10 mr-3" src={logo} alt="Logo" />
+          {/* Logo Section: Wrapped in anchor for pointer and home redirect */}
+          <a href="#home" className="flex items-center cursor-pointer group">
+            <img className="h-9 w-9 mr-3" src={logo} alt="Logo" />
             
-            {/* Text along with the logo */}
             <div className="hidden sm:flex flex-col justify-center">
-              <span className="font tracking-tighter text-xl  leading-none">
+              <span className="font-bold tracking-tighter text-lg leading-none group-hover:text-red-500 transition-colors">
                 Nimith Matr
               </span>
-              <span className="text-[10px] text-neutral-400 tracking-[0.15em] mt-1 font-medium">
+              <span className="text-[9px] text-neutral-400 tracking-[0.12em] mt-1 font-medium uppercase">
                 Full-funnel consultancy
               </span>
             </div>
-          </div>
+          </a>
 
-          {/* Navigation links : Desktop version*/}
-          <ul className="hidden md:flex items-center space-x-10 ml-auto mr-12">
-            {navItems.map((item, index) => (
-              <li key={index}>
-                <a 
-                  className="text-[20px] font-normal hover:text-red-500 transition-all" 
-                  href={item.href}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          {/* Navigation links: Desktop */}
+          <div className="hidden md:flex items-center gap-10">
+            <ul className="flex items-center space-x-10">
+              {/* loops through NavItems */}
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  
+                  <a 
+                  //  item.#home(goes to that particular id named file(the #name is equal to id="name" in the component's file))
+                    href={item.href} 
+                    className="text-[16px] font-medium hover:text-red-500 transition-all cursor-pointer" 
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-          {/*Book Funnel Audit button */}
-          <div className="hidden md:block">
+            {/* Book Funnel Audit button */}
             <a 
-              href="#" 
-              className="bg-white text-red-600 py-2.5 px-10 rounded-full font-medium text-base hover:bg-red-50 transition-all active:scale-95"
-
+              href="#contact" 
+              className="bg-white text-red-500 py-2 px-8 rounded-full font-bold text-[15px] cursor-pointer hover:bg-red-500 hover:text-white transition-all active:scale-95"
             >
               Book Funnel Audit
             </a>
@@ -54,22 +56,25 @@ function Navbar() {
 
           {/* Mobile Toggle */}
           <button 
-            className="md:hidden ml-auto p-2" 
+            //only visible on mobile
+            className="md:hidden p-2 cursor-pointer" 
             onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle Menu"
           >
-            {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </nav>
 
-      {/* Mobile Drawer*/}
+      {/* Mobile Drawer */}
       {mobileOpen && (
         <div className="fixed inset-0 bg-black text-white z-40 flex flex-col justify-center items-center md:hidden">
           <ul className="space-y-8 mb-10 text-center">
             {navItems.map((item, index) => (
               <li key={index}>
                 <a 
-                  className="text-2xl font-bold" 
+                  className="text-2xl font-semibold cursor-pointer hover:text-red-500"
+                  //scrolld to the section and closes the menu immediately 
                   href={item.href} 
                   onClick={() => setMobileOpen(false)}
                 >
@@ -79,7 +84,8 @@ function Navbar() {
             ))}
           </ul>
           <a 
-            className="bg-white text-red-600 py-4 px-14 rounded-full font-bold text-lg"
+            href="#contact"
+            className="bg-white text-black py-3 px-10 rounded-full font-bold text-lg cursor-pointer"
             onClick={() => setMobileOpen(false)}
           >
             Book Funnel Audit

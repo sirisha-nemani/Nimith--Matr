@@ -2,48 +2,49 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { steps } from "../constants";
 
-
 const HowWeWork = () => {
+
   return (
-    /*  spacing between components */
-    <section className="w-full py-10 md:py-16 bg-white">
+    <section className="w-full py-12 flex justify-center">
       
-      
-      <div className="max-w-[1100px] mx-auto border border-neutral-200/60 rounded-[32px] p-8 md:p-12 lg:p-14 bg-white">
+      {/* Outer Continer */}
+      <div className="max-w-[1100px] w-[85%] mx-auto border border-neutral-300 rounded-[40px] py-10 px-6 md:px-10 lg:px-12 bg-white">
         
-       
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+        {/* Grid styling
+        */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
-          {/* Left section
-          */}
-          <div className="lg:col-span-4 flex flex-col space-y-3">
-            <h2 className="text-3xl md:text-4xl font-semibold text-black tracking-tight leading-tight">
+          {/* Left section : Content Text */}
+          <div className="lg:col-span-5 flex flex-col space-y-3">
+            <h3 className="text-3xl md:text-4xl font-semibold text-black tracking-tight leading-tight">
               How we work
-            </h2>
-            <p className="text-neutral-500 text-sm md:text-base max-w-[240px] leading-relaxed">
-              A simple system founders can follow.
+            </h3>
+            <p className="text-neutral-500 text-sm md:text-base max-w-[280px] leading-relaxed">
+              A simple system founders can follow to achieve lean growth.
             </p>
           </div>
 
-          {/* Right section
-          */}
-          <div className="lg:col-span-8 flex flex-col space-y-3">
+          {/* Right Sections : cards arranged one after the other */}
+          <div className="lg:col-span-7 flex flex-col space-y-3 w-full">
+            {/* Id is alredy specified, hence passing a single parameter */}
             {steps.map((step) => (
               <div 
                 key={step.id} 
-                className="group w-full border-2 border-red-100/80 rounded-2xl p-4 md:p-5 flex items-center justify-between transition-all duration-300 hover:bg-red-50/50 hover:border-red-500"
+                className="group border-2 border-red-600 rounded-2xl px-4 py-3 flex items-center justify-between hover:bg-red-700/17 transition-all cursor-pointer"
               >
-                <div className="flex items-center gap-6 md:gap-10">
-                  {/* Id numbrer */}
-                  <span className="text-neutral-600 font-medium text-xs md:text-sm tracking-widest w-6">
+                {/* Content Wrapper */}
+                <div className="flex items-center gap-4 md:gap-8 overflow-hidden">
+                  {/* Step ID */}
+                  <span className="text-neutral-400 font-bold text-xs md:text-sm tracking-widest shrink-0">
                     {step.id}
                   </span>
                   
-                  <div className="flex flex-col">
-                    <h5 className="text-lg md:text-l font-semibold text-black  leading-tight mb-0.5">
+                  {/* Text Details */}
+                  <div className="flex flex-col min-w-0">
+                    <h5 className="text-sm md:text-base font-semibold text-black leading-tight truncate">
                       {step.title}
                     </h5>
-                    <p className="text-neutral-600 font-medium text-[11px] md:text-sm">
+                    <p className="text-neutral-500 font-medium text-[11px] md:text-[13px] truncate md:whitespace-normal">
                       {step.desc}
                     </p>
                   </div>
@@ -52,7 +53,7 @@ const HowWeWork = () => {
                 {/* Arrow Icon */}
                 <ArrowRight 
                   size={16} 
-                  className="text-neutral-600 ]" 
+                  className="text-neutral-400 group-hover:text-[#E63946] group-hover:translate-x-1 transition-all shrink-0 ml-2" 
                 />
               </div>
             ))}

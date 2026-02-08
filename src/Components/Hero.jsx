@@ -1,104 +1,105 @@
 import React from "react";
 import { ArrowRight, Check } from "lucide-react";
-
-// Data defined locally
-const outcomeList = [
-  "Clear Ideal Customer Profile",
-  "Lower CPL / CPQL via funnel fixes",
-  "Better conversion with minimal pages",
-  "Dashboards that founders actually use",
-];
-
-
+import { outcomeList } from "../constants";
 
 const Hero = () => {
   return (
-    <div className="bg-white min-h-screen font-sans selection:bg-red-100">
-      <div className="max-w-[1280px] mx-auto px-6 py-12 lg:py-20">
+    <section id="home" className="pt-24 md:pt-32 w-full flex justify-center bg-white selection:bg-red-100">
+      <div className="max-w-[1100px] w-[85%] mx-auto py-10 md:py-16">
         
-        {/* Hero section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-6 gap-x-6 lg:gap-y-8 lg:gap-x-6 items-start mb-32">
-
+        {/* Hero Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
           
-          {/* Left Column */}
-          <div className="lg:col-span-7 flex flex-col space-y-6 lg:space-y-8">
+          {/*Left Section: Contact */}
+          <div className="lg:col-span-7 flex flex-col space-y-6">
             
-            {/* Full Funnel growth for founders */}
-            <div className="min-w-[240px] flex items-center justify-center border border-red-200 bg-red-50/50 w-[370px] px-5 py-3 rounded-full transition-colors hover:bg-red-50">
-              <span className="text-[#E63946] font-semibold text-xs tracking-widest text-center">
+            {/* Tagline */}
+            <div className="inline-flex items-center border-2 border-red-700/40 bg-red-700/15 w-fit px-4 py-2 rounded-full">
+              <span className="text-[#D32F2F] font-bold text-[10px] md:text-xs tracking-widest ">
                 Full Funnel growth for founders
               </span>
             </div>
 
-            {/* main heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-[72px] font-medium text-black leading-[1.1] tracking-tight">
+            {/* Main Heading */}
+            <h3 className="text-3xl md:text-3xl lg:text-4xl font-semibold text-black leading-[1.1] tracking-tight">
               Scale outreach. <br />
               <span className="text-[#D32F2F]">Keep burn low.</span>
-            </h1>
+            </h3>
 
-            {/*  Subheading */}
-            <p className="text-neutral-500 text-base md:text-lg max-w-[480px] font-normal leading-relaxed">
-              Nimith Matr designs lean marketing systems—strategy, funnel, and 
-              execution—built for early-stage teams.
+            {/* Subheading */}
+            <p className="text-neutral-500 text-sm md:text-base max-w-[440px] leading-relaxed bg-transparent ">
+              Nimith Matr designs lean marketing systems-strategy, funnel,
+              and execution—built for early-stage teams.
             </p>
 
-            {/* Funnel Audit Button */}
-            <button className="flex items-center justify-left bg-black text-white w-[370px] px-5 py-3 rounded-full group transition-all hover:bg-red-700 active:scale-[0.98] relative">
-  <span className="text-base font-medium tracking-tight">
-    Book a Funnel Audit
-  </span>
-  <ArrowRight
-    size={18}
-    className="absolute right-3.5 "
-  />
-</button>
+            {/* Button that redirects to "Talk to us" section via href */}
+            <a
+              href="#contact"
+              className="flex items-center justify-between bg-black text-white w-full max-w-[340px] px-6 py-3.5 rounded-full group transition-all hover:bg-red-700 active:scale-[0.98]"
+            >
+              <span className="text-sm md:text-base font-medium">
+                Book a Funnel Audit
+              </span>
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </a>
 
-
-
-
-            {/*More info row*/}
-            <div className="flex flex-wrap gap-4 pt-4">
-              <div className="border border-neutral-200 p-4 rounded-2xl min-w-[160px] flex-1">
-                <p className="text-[10px] uppercase text-neutral-400 font-bold mb-1 tracking-widest">Focus</p>
-                <p className="text-neutral-700 font-medium">Low-cost scale</p>
+            {/* Info Cards */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <div className="border border-neutral-500 px-5 py-2.5 rounded-xl w-fit min-w-[130px]">
+                <p className="text-[13px] text-neutral-400 font-bold tracking-widest  mb-0.5">
+                  Focus
+                </p>
+                <p className="text-neutral-700 text-[14px] font-medium leading-tight">
+                  Low-cost scale
+                </p>
               </div>
-              <div className="border border-neutral-200 p-4 rounded-2xl min-w-[160px] flex-1">
-                <p className="text-[10px] uppercase text-neutral-400 font-bold mb-1 tracking-widest">Style</p>
-                <p className="text-neutral-700 font-medium whitespace-nowrap">Test → Learn → Scale</p>
+              
+              <div className="border border-neutral-500 px-5 py-2.5 rounded-xl w-fit min-w-[130px]">
+                <p className="text-[13px] text-neutral-400 font-bold tracking-widest  mb-0.5">
+                  Style
+                </p>
+                <p className="text-neutral-700 text-[14px] font-medium leading-tight">
+                  Test → Learn → Scale
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Right column */}
-          <div className="lg:col-span-5 flex lg:justify-end">
-            <div className="w-full max-w-[420px] border border-red-100 rounded-[40px] p-8 md:p-10 bg-white shadow-sm">
-              <h3 className="text-2xl font-bold text-black mb-8">Typical outcomes</h3>
-              
-              <ul className="space-y-5 mb-10">
+          {/* Right Column : OutComes card*/}
+          <div className="lg:col-span-5 flex lg:justify-end ">
+            <div className="w-full border-2 border-red-700/40 rounded-[32px] px-6 py-4 md:px-8 bg-[#FFF5F5] shadow-sm bg-red-700/15">
+              <h3 className="text-lg font-bold text-black mb-3">
+                Typical outcomes
+              </h3>
+
+              <ul className="grid grid-cols-1 gap-y-2 mb-4">
                 {outcomeList.map((item, idx) => (
-                  <li key={idx} className="flex items-start space-x-4">
-                    <div className="bg-black p-1 rounded flex-shrink-0 mt-1">
-                      <Check size={12} className="text-white" strokeWidth={4} />
+                  <li key={idx} className="flex items-center space-x-4">
+                    <div className="bg-black p-0.5 rounded flex-shrink-0">
+                      <Check size={10} className="text-white" strokeWidth={4} />
                     </div>
-                    <span className="text-neutral-600 text-[15px] font-normal leading-tight">
+                    <span className="text-neutral-700 text-[15px] font-medium leading-none">
                       {item}
                     </span>
                   </li>
                 ))}
               </ul>
 
-              {/* Best For Tag  */}
-              <div className="border border-neutral-100 rounded-2xl p-5 bg-neutral-50/30">
-                <p className="text-[10px] uppercase text-neutral-400 font-bold mb-1 tracking-widest">Best For</p>
-                <p className="text-neutral-600 text-sm font-medium leading-relaxed">
-                  Bootstrapped, 0—Series A, capital-conscious teams
+              {/* Best For Tag */}
+              <div className="border-2 border-red-700/40 rounded-xl p-3 bg-white/60">
+                <p className="text-[11px] text-neutral-600 font-semibold mb-0.5 tracking-widest ">
+                  Best For
+                </p>
+                <p className="text-neutral-600 text-[15px] font-medium leading-tight">
+                  Bootstrapped, 0—Series , A teams
                 </p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

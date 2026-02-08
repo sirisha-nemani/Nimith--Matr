@@ -1,49 +1,41 @@
 import React from 'react';
 
-const testimonials = [
-  {
-    quote: "“Clear thinking, low burn, real outcomes.”",
-    author: "Founder, SaaS Startup"
-  },
-  {
-    quote: "“They helped us fix the funnel before scaling ads.”",
-    author: "Co-founder, D2C Brand"
-  },
-  {
-    quote: "“Finally a marketing partner who thinks like a founder.”",
-    author: "CEO, EdTech Venture"
-  }
-];
+import { testimonials } from '../constants';
 
 const Testimonials = () => {
+  /* Logic:
+     - Main Container: w-[85%] of the screen.
+     - We keep the quote and author tightly packed to maintain a horizontal rectangle.
+  */
   return (
-    <section className="w-full py-12">
-      {/* Aligned to the same 1100px grid as previous sections */}
-      <div className="max-w-[1100px] mx-auto">
+    <section className="w-full py-12 flex justify-center">
+      {/* Container: Occupies 85% of the width*/}
+      <div className="max-w-[1100px] w-[85%] mx-auto">
         
         {/* Section Header */}
         <div className="mb-8">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-black mb-1">
+          <h3 className="text-3xl font-semibold tracking-tight text-black mb-1">
             What founders say
-          </h2>
+          </h3>
         </div>
 
-        {/* Grid: Responsive 3-column layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        {/* Grid: 3-column layout that shifts to 1 on mobile devices */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {testimonials.map((item, i) => (
+            /* Card Styling */
             <div 
               key={i} 
-              className="border-2 border-red-50/50 rounded-2xl p-6 md:p-8 bg-white flex flex-col justify-between hover:border-red-600 transition-all min-h-[160px]"
+              className="border-2 border-red-600 rounded-2xl px-4 py-4 bg-white flex flex-col justify-between transition-all hover:shadow-sm"
             >
-              {/* Quote text - slim and airy */}
-              <p className="text-neutral-600 text-[15px] md:text-base leading-relaxed font-medium italic">
+              {/* Quote text */}
+              <p className="text-black text-[11px] md:text-sm leading-snug font-normal mb-3 ">
                 {item.quote}
               </p>
               
-              {/* Author attribution with the distinctive dash */}
-              <div className="mt-6 flex items-center gap-2">
-                <span className="w-4 h-[1.5px] bg-neutral-300"></span>
-                <span className="text-neutral-400 text-xs md:text-[13px] font-semibold tracking-tight">
+              {/* Author attribution */}
+              <div className="flex items-center gap-2">
+                <span className="w-3 h-[1.5px] bg-neutral-300"></span>
+                <span className="text-neutral-700 text-[13px] md:text-xs font-semibold tracking-tight ">
                   {item.author}
                 </span>
               </div>
