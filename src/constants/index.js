@@ -2,10 +2,12 @@
 // Imported in NavBar component
 export const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Services", href: "#services" },
+  { label: "Process", href: "#process" },
   { label: "Blog", href: "#" },
+  { label: "Contact Us", href: "#contact" },
 ];
-
+//Imported in Hero Component
 export const outcomes = [
   "Clear Ideal Customer Profile",
   "Lower CPL / CPQL via funnel fixes",
@@ -13,10 +15,10 @@ export const outcomes = [
   "Dashboards that founders actually use",
 ];
 
-export const highlights = [
-  { title: "Focus", value: "Low-cost scale" },
-  { title: "Style", value: "Test → Learn → Scale" },
-];
+// export const highlights = [
+//   { title: "Focus", value: "Low-cost scale" },
+//   { title: "Style", value: "Test → Learn → Scale" },
+// ];
 
 //Imported in "How We Work" Component
 export const steps = [
@@ -69,6 +71,7 @@ export const outcomeList = [
   }
 ];
 
+//Imported in Principles Component
 export const principles = [
   { title: "Low burn", desc: "Optimise for CPQL & conversion." },
   { title: "No black box", desc: "Transparent spend and learnings." },

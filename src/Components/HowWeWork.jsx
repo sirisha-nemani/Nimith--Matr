@@ -5,7 +5,7 @@ import { steps } from "../constants";
 const HowWeWork = () => {
 
   return (
-    <section className="w-full py-12 flex justify-center">
+    <section id="process" className="w-full py-12 flex justify-center">
       
       {/* Outer Continer */}
       <div className="max-w-[1100px] w-[85%] mx-auto border border-neutral-300 rounded-[40px] py-10 px-6 md:px-10 lg:px-12 bg-white">

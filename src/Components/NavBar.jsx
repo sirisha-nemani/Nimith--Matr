@@ -17,11 +17,11 @@ function Navbar() {
           <a href="#home" className="flex items-center cursor-pointer group">
             <img className="h-9 w-9 mr-3" src={logo} alt="Logo" />
             
-            <div className="hidden sm:flex flex-col justify-center">
-              <span className="font-bold tracking-tighter text-lg leading-none group-hover:text-red-500 transition-colors">
+            <div className=" flex flex-col items-start justify-center">
+              <span className="font-normal tracking-tighter text-lg leading-none group-hover:text-red-500 transition-colors">
                 Nimith Matr
               </span>
-              <span className="text-[9px] text-neutral-400 tracking-[0.12em] mt-1 font-medium uppercase">
+              <span className="text-[9px] text-neutral-400 tracking-[0.12em] mt-1 font-medium ">
                 Full-funnel consultancy
               </span>
             </div>
@@ -37,7 +37,7 @@ function Navbar() {
                   <a 
                   //  item.#home(goes to that particular id named file(the #name is equal to id="name" in the component's file))
                     href={item.href} 
-                    className="text-[16px] font-medium hover:text-red-500 transition-all cursor-pointer" 
+                    className="text-[17px] font-medium hover:text-red-500 transition-all cursor-pointer" 
                   >
                     {item.label}
                   </a>
@@ -48,7 +48,7 @@ function Navbar() {
             {/* Book Funnel Audit button */}
             <a 
               href="#contact" 
-              className="bg-white text-red-500 py-2 px-8 rounded-full font-bold text-[15px] cursor-pointer hover:bg-red-500 hover:text-white transition-all active:scale-95"
+              className="bg-white text-red-500 py-2 px-8 rounded-full font-semibold text-[16px] cursor-pointer hover:bg-red-500 hover:text-white transition-all active:scale-95"
             >
               Book Funnel Audit
             </a>
@@ -68,12 +68,12 @@ function Navbar() {
 
       {/* Mobile Drawer */}
       {mobileOpen && (
-        <div className="fixed inset-0 bg-black text-white z-40 flex flex-col justify-center items-center md:hidden">
+        <div className="fixed inset-0 bg-black/86 backdrop-blur-lg text-white z-40 flex flex-col justify-center items-center md:hidden">
           <ul className="space-y-8 mb-10 text-center">
             {navItems.map((item, index) => (
               <li key={index}>
                 <a 
-                  className="text-2xl font-semibold cursor-pointer hover:text-red-500"
+                  className="text-2xl font-normal cursor-pointer hover:text-red-500"
                   //scrolld to the section and closes the menu immediately 
                   href={item.href} 
                   onClick={() => setMobileOpen(false)}

@@ -2,25 +2,59 @@ import React, { useState } from 'react';
 import { Mail, IndianRupee } from 'lucide-react';
 
 const ContactForm = () => {
-  // Initialised with "idle" : nothing is entered in the form
+
+   // Initialised with "idle" : nothing is entered in the form
+
   const [status, setStatus] = useState('idle');
 
+
+
   const handleSubmit = (e) => {
+
     //HTML forms reload the page on submit , but react is a SPA , hence its important we prevent that behavior , (prevents from refreshing every single time we click on submit and input column going blank)
+
     e.preventDefault();
+
     const formData = new FormData(e.target);
+
     const data = Object.fromEntries(formData.entries());
 
-    // checking to ensure all required fields are entered
-    if (!data.name || !data.email || !data.budget || !data.message) {
-      setStatus('error');
-      return;
-    }
+    //Capturing values from the form input 
+    const name = e.target.name.value;
+    const company = e.target.company.value;
+    const email = e.target.email.value;
+    const budget = e.target.budget.value;
+    const message = e.target.message.value;
 
-    // Success flow: update UI, clear form, and reset after 5 seconds
+   // If any of these are missing, we stop the function immediately
+    if (!name ||!company||!email || !budget || !message) {
+      setStatus('error');
+      return; // This "return" ensures the fetch below never runs
+    }
+    
+   //This part only runs if the check above passes
+    setStatus('loading');
+    const url = "https://script.google.com/macros/s/AKfycbw7Zz1WXH5HvJOnC5CiMGjIOL7KWi8Le5fYyYyqb9D-Bkfrjnto-ygsyu1bih315Pf7/exec";
+
+    fetch(url,{
+
+      method: "POST",
+
+      headers :{"Content-Type":"application/x-www-form-urlencoded"},
+
+      body : (`Name= ${name}&Company=${company}&Email=${email}&Budget_Range=${budget}&Needs=${message}`)
+
+    }).then(res => res.text().then(data => {
+    alert(data);
     setStatus('success');
     e.target.reset();
     setTimeout(() => setStatus('idle'), 5000);
+    }))
+    .catch(error => {
+      console.log(error);
+      setStatus('error');
+    });
+
   };
 
   return (
@@ -91,7 +125,7 @@ const ContactForm = () => {
               <button 
                 type="submit"
                 disabled={status === 'success'}
-                className={`w-full font-bold py-2 rounded-xl transition-all text-sm active:scale-[0.98] ${
+                className={`w-full font-bold py-2 rounded-xl transition-all text-sm active:scale-[0.98] cursor-pointer disabled:cursor-not-allowed ${
                   status === 'success' ? 'bg-green-600 text-white' : 'bg-black text-white hover:bg-neutral-800'
                 }`}
               >

@@ -19,9 +19,9 @@ export const servicesList = [
 ];
 
 const Services = () => {
-  
+
   return (
-    <section className="bg-white py-12 md:py-16 flex justify-center">
+    <section id="services" className="bg-white py-12 md:py-16 flex justify-center">
       {/* Setting the width of each component to occupy 85% of the screen */}
       <div className="max-w-[1100px] w-[85%] mx-auto ">
         
